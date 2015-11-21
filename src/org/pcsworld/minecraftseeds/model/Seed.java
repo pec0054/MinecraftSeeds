@@ -2,7 +2,11 @@ package org.pcsworld.minecraftseeds.model;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Seed {
+
 	/*  Fields from issue 3
 	 * 
 	 * 
@@ -13,8 +17,11 @@ Minecraft platform (PC, PE, XBox)
 Submitter
 	 */
 	private int seedId;
+	@Size(min=5, max=100, message="Seed Name must be between 5 and 100 characters.")
 	private String seedName;
+	@NotNull
 	private String seedValue;
+	@NotNull
 	private String platform;
 	private String submitter;
 	private Date lastModified;
@@ -120,5 +127,11 @@ Submitter
 	public void setCreated(Date created) {
 		this.created = created;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "Seed [seedId=" + seedId + ", seedName=" + seedName + ", seedValue=" + seedValue + ", platform="
+				+ platform + ", submitter=" + submitter + ", lastModified=" + lastModified + ", created=" + created
+				+ "]";
+	}
 }
