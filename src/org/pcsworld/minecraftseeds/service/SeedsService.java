@@ -23,7 +23,7 @@ public class SeedsService {
 		Date lastModified = new Date();
 		seed.setCreated(created);
 		seed.setLastModified(lastModified);
-		seed.setSubmitter("pc");
+		//seed.setSubmitter("pc");
 		System.out.println(seed.toString());
 		seedsDao.create(seed);
 		

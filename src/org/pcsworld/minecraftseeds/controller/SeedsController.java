@@ -1,5 +1,6 @@
 package org.pcsworld.minecraftseeds.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -33,15 +34,18 @@ public class SeedsController {
 	}
 
 	@RequestMapping(value="/docreate", method=RequestMethod.POST)
-	public String doCreate(Model model, @Valid Seed seed, BindingResult result) {
+	public String doCreate(Model model, @Valid Seed seed, BindingResult result, Principal principal) {
 		if (result.hasErrors()) {
 			return "createseed";
 		}
+		
+		String username = principal.getName();
+		seed.setSubmitter(username);
 		seedsService.create(seed);
 		return "seedcreated";
 	}
 	@RequestMapping("/seedlist")
-	public String showOSeeds(Model model) {
+	public String showSeeds(Model model) {
 		
 		//offersService.throwTestException();
 		

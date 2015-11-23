@@ -39,6 +39,9 @@ public class SeedsDao {
 					seed.setSeedName(rs.getString("seedName"));
 					seed.setSeedValue(rs.getString("seedValue"));
 					seed.setPlatform(rs.getString("platform"));
+					seed.setSubmitter(rs.getString("submitter"));
+					seed.setCreated(rs.getDate("created"));
+					seed.setLastModified(rs.getDate("modified"));
 					return seed;
 				}
 			});

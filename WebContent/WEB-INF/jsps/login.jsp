@@ -33,6 +33,7 @@
 			<input name="_csrf" type="hidden"
 				value="${_csrf.token}" />
 		</table>
+		<a href="${pageContext.request.contextPath}/newuser">Create new Login</a>
 	</form>
 </body>
 </html>
